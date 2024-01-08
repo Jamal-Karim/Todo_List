@@ -1,3 +1,4 @@
+import { todoDisplay } from "./display.js";
 import { Todo } from "./todo.js";
 
 //Project Logic
@@ -8,19 +9,35 @@ class Project extends Todo{
     }
 }
 
-function createProject (proj){
+//Creating Project Category
+export function createProject (proj){
     return {proj};
 }
 
-function createProjectTask (proj, title, description, dueDate, priority){
+//Creating Task for Project Category
+export function createProjectTask (proj, title, description, dueDate, priority){
     return new Project(proj, title, description, dueDate, priority);
 }
 
-const proj1 = createProject("Gym");
 
-const test = createProjectTask("studies","read", "read 100pgs", "01/05/24", "high");
+//Showing Display for Certain Project
+export function showProjectDisplay(projectType){
+    for(let i = 0; i < todoDisplay.display.length; i++){
 
-const test2 = createProjectTask(proj1.proj, "run", "6 miles in the morning", "daily", "high");
+        if("proj" in todoDisplay.display[i]){
+            if(todoDisplay.display[i].proj === projectType){
+                console.log(todoDisplay.display[i]);
+            }
+        }
+    }
+}
 
-console.log(test2);
 
+//Removing Project and All Tasks With it
+export function removeProject(projectType){
+    for (let i = todoDisplay.display.length - 1; i >= 0; i--) {
+        if ("proj" in todoDisplay.display[i] && todoDisplay.display[i].proj === projectType) {
+            todoDisplay.display.splice(i, 1);
+        }
+    }
+}
