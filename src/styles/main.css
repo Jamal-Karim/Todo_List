@@ -1,0 +1,164 @@
+/* CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+:root {
+  --lightBlue: #E9F1FA;
+  --brightBlue: #00ABE4;
+  --white: #FFFFFF;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Title Section */
+
+.titleContainer {
+  width: 100vw;
+  height: 7rem;
+  background-color: var(--brightBlue);
+  display: flex;
+  align-items: center;
+}
+
+.titleContainer h1 {
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: 2rem;
+  font-size: 3rem;
+}
+
+/* Sidebar Section */
+
+.sidebar {
+  width: 15rem;
+  height: 90vh;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar h2 {
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Which Sidebar Option Clicked */
+
+.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar h2.active:before {
+  content: "";
+  position: absolute;
+  width: 350%;
+  height: 130%;
+  background-color: coral;
+  z-index: -1;
+  border-radius: 10px;
+}
+
+/* Grid Container */
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+/* Where the Tasks Go */
+.taskList {
+  width: 90vw;
+  height: 90vh;
+  background-color: var(--lightBlue)
+}
+
+.task {
+  border-radius: 10px;
+  width: 79vw;
+  height: 3rem;
+  background-color: rgb(209, 206, 206);
+  margin: 2rem;
+  margin-right: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.taskTitle,
+.dueDate {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 900;
+}
+
+.taskTitle {
+  margin-right: auto;
+  margin-left: 2rem;
+}
+
+.dueDate,
+.checkBtn {
+  margin-right: 2rem;
+}
+
+.checkBtn {
+  width: 20px;
+  height: 20px;
+  border: 3px #00ABE4 solid;
+}
+
+/* Task Info Box */
+
+/* .taskInfo{
+  width: 400px;
+  height: 400px;
+  background-color:lightblue;
+} */
