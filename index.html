@@ -1,12 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
+    <link rel="stylesheet" href="/src/styles/main.css">
+
+    <!-- Ubuntu Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+
+    <!-- Open Sans Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    
+    <div class="titleContainer">
+        <h1>Todo List</h1>
+    </div>
+
+    <div class="gridContainer">
+
+        <div class="sidebar">
+            <h2 class="active">Tasks</h2>
+            <h2>Projects</h2>
+            <h2>Notes</h2>
+        </div>
+
+        <main class="taskList">
+
+            <div class="task">
+                <p class="taskTitle">Read</p>
+
+                <p class="dueDate">01/05/24</p>
+
+                <button class="checkBtn"></button>
+            </div>
+
+            <div class="task">
+                <p class="taskTitle">Run</p>
+
+                <p class="dueDate">Daily</p>
+
+                <button class="checkBtn"></button>
+            </div>
+        </main>
+    </div>
+
+    <!-- <div class="taskInfo">
+        <h1>Run</h1>
+        <p>Go running for 3 miles every day</p>
+        <p>Daily</p>
+        <p>Low</p>
+    </div> -->
+
     <script src="main.js"></script>
 </body>
+
 </html>
