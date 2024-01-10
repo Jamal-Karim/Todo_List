@@ -83,10 +83,26 @@ body {
 }
 
 .sidebar h2 {
+  cursor: pointer;
   font-family: 'Open Sans', sans-serif;
-  margin-top: 2rem;
   position: relative;
   z-index: 1;
+  margin-top: 2rem;
+  margin-left: 1.2rem;
+}
+
+.add{
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 125px;
+  height: 125px;
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 15px;
+  border-style: none;
+  background-color: var(--brightBlue);
+  margin-top: auto;
 }
 
 /* Which Sidebar Option Clicked */
@@ -100,13 +116,12 @@ body {
 .sidebar h2.active:before {
   content: "";
   position: absolute;
-  width: 350%;
+  width: 300%;
   height: 130%;
   background-color: coral;
   z-index: -1;
   border-radius: 10px;
 }
-
 /* Grid Container */
 
 .gridContainer {
@@ -155,6 +170,35 @@ body {
   border: 3px #00ABE4 solid;
 }
 
+/* Input Form */
+body{
+  position: relative;
+}
+
+.formContainer{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background-color: #00ABE4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2rem;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.inputBtns{
+  margin-top: 1.3rem;
+}
+.inputBtns input{
+  margin-right: 1.3rem;
+}
 /* Task Info Box */
 
 /* .taskInfo{
