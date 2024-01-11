@@ -2,19 +2,20 @@
 export function toggleActive() {
 
     var tabs = document.querySelectorAll('.tab');
+    const mainTaskList = document.querySelector(".taskList");
 
     tabs.forEach(function (tab) {
         tab.addEventListener('click', function () {
 
             tabs.forEach(function (i) {
                 i.classList.remove('active');
+                mainTaskList.innerHTML = '';
             });
 
             tab.classList.add('active');
         });
     });
 }
-
 //Display for all tasks
 export const todoDisplay = (function () {
     const display = [];
@@ -37,18 +38,41 @@ export function updateDisplay(task) {
     }
 }
 
-export function showDisplay() {
+export function showTaskDisplay() {
+
+    const mainTaskList = document.querySelector(".taskList");
 
     for (let i = 0; i < todoDisplay.display.length; i++) {
 
-        if ("proj" in todoDisplay.display[i]) {
-            console.log(todoDisplay.display[i].proj);
-        }
-
         console.log(todoDisplay.display[i].title);
-        console.log(todoDisplay.display[i].description);
+        console.log(todoDisplay.display[i].dueDate);
+
+        const div = document.createElement("div");
+        div.classList.add("task");
+
+        const title = document.createElement("p");
+        title.classList.add("taskTitle");
+        title.textContent = todoDisplay.display[i].title;
+        div.appendChild(title);
+
+        const date = document.createElement("p");
+        date.classList.add("dueDate");
+        date.textContent = todoDisplay.display[i].dueDate;
+        div.appendChild(date);
+
+        const checkBtn = document.createElement("button");
+        checkBtn.classList.add("checkBtn");
+        div.appendChild(checkBtn);
+
+        // if ("proj" in todoDisplay.display[i]) {
+        //     console.log(todoDisplay.display[i].proj);
+        // }
+
+        mainTaskList.appendChild(div);
     }
+    return mainTaskList;
 }
+
 
 export function removeTask(task) {
     const indexToRemove = todoDisplay.display.indexOf(task);

@@ -108,7 +108,7 @@ body {
 
 /* Which Sidebar Option Clicked */
 
-.active {
+/* .active {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,7 +122,23 @@ body {
   background-color: coral;
   z-index: -1;
   border-radius: 10px;
+} */
+
+/* Projects Section */
+.projects p{
+  cursor: pointer;
+  margin-top: 1.2rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
 }
+
+.active {
+  color: coral;
+}
+
 /* Grid Container */
 
 .gridContainer {

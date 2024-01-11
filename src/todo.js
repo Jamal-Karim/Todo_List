@@ -1,3 +1,5 @@
+import { updateDisplay, todoDisplay } from "./display";
+
 //TODO Logic
 export class Todo {
     constructor(title, description, dueDate, priority) {
@@ -92,6 +94,8 @@ export function TodoInput() {
 
     const inputBtns = document.createElement("div");
 
+    //Adding todo logic
+
     const inputSubmit = document.createElement("input");
     inputSubmit.type = "button";
     inputSubmit.value = "Add To List";
@@ -136,10 +140,15 @@ export { isFormDisplayed };
 export function AddTodoToList() {
     const todo = createTodo(document.getElementById("task").value, document.getElementById("description").value,
         document.getElementById("dueDate").value, document.getElementById("priority").value);
+        
     console.log(todo);
 
+    todoDisplay.display.push(todo);
+
+    console.log(todoDisplay.display);
+
     //creating dynamic task
-    const mainTaskList = document.querySelector(".taskList")
+    const mainTaskList = document.querySelector(".taskList");
 
     const div = document.createElement("div");
     div.classList.add("task");
