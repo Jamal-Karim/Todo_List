@@ -140,11 +140,9 @@ export function AddTodoToList() {
     const todo = createTodo(document.getElementById("task").value, document.getElementById("description").value,
         document.getElementById("dueDate").value, document.getElementById("priority").value);
         
-    console.log(todo);
 
     todoDisplay.display.push(todo);
 
-    console.log(todoDisplay.display);
 
     //creating dynamic task
     const mainTaskList = document.querySelector(".taskList");

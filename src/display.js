@@ -1,21 +1,20 @@
 //Showing Which Tab User is On
-export function toggleActive() {
+// export function toggleActive() {
+//     const tabs = document.querySelectorAll('.tab');
+//     const mainTaskList = document.querySelector(".taskList");
 
-    var tabs = document.querySelectorAll('.tab');
-    const mainTaskList = document.querySelector(".taskList");
+//     tabs.forEach(function (tab) {
+//         tab.addEventListener('click', function () {
+//             tabs.forEach(function (i) {
+//                 i.classList.remove('active');
+//             });
 
-    tabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
+//             tab.classList.add('active');
+//             mainTaskList.innerHTML = '';
+//         });
+//     });
+// }
 
-            tabs.forEach(function (i) {
-                i.classList.remove('active');
-                mainTaskList.innerHTML = '';
-            });
-
-            tab.classList.add('active');
-        });
-    });
-}
 //Display for all tasks
 export const todoDisplay = (function () {
     const display = [];
@@ -39,14 +38,11 @@ export function updateDisplay(task) {
 }
 
 export function showTaskDisplay() {
+    console.log(todoDisplay.display);
 
     const mainTaskList = document.querySelector(".taskList");
 
     for (let i = 0; i < todoDisplay.display.length; i++) {
-
-        console.log(todoDisplay.display[i].title);
-        console.log(todoDisplay.display[i].dueDate);
-
         const div = document.createElement("div");
         div.classList.add("task");
 

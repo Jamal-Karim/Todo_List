@@ -1,4 +1,4 @@
-import { todoDisplay } from "./display.js";
+import { todoDisplay, toggleActive, showTaskDisplay} from "./display.js";
 import { Todo } from "./todo.js";
 
 //Project Logic
@@ -11,6 +11,19 @@ class Project extends Todo{
 
 //Creating Project Category
 export function createProject (proj){
+    
+    const p = document.createElement("p");
+    p.classList.add("tab");
+    p.textContent = proj;
+
+    const projContainer = document.querySelector(".projects");
+    projContainer.appendChild(p);
+
+    p.addEventListener("click", () =>{
+        console.log("click");
+    })
+    console.log(todoDisplay.display);
+    
     return {proj};
 }
 
@@ -41,6 +54,7 @@ export function projectInput(){
     inputAdd.type = "button";
     inputAdd.value = "Add Project";
     inputAdd.addEventListener("click", () =>{
+        createProject(input1.value);
         form.remove();
         isProjFormDisplayed = false;
     })

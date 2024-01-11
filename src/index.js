@@ -1,22 +1,23 @@
 import { createTodo, TodoInput, toggleTodoDisplay, isFormDisplayed} from "./todo.js";
 import { createProject, createProjectTask, showProjectDisplay, removeProject, projectInput, showProjectForm } from "./project.js";
-import { todoDisplay, updateDisplay, removeTask, showTaskDisplay, toggleActive } from "./display.js";
+import { todoDisplay, updateDisplay, removeTask, showTaskDisplay } from "./display.js";
 
 import './styles/main.css';
 
-toggleActive();
 
 const addButton = document.querySelector(".add");
+
+const todoTab = document.getElementById("todo");
+
+const addProjectBtn = document.querySelector(".projBtn");
 
 //Todo Popup Form
 
 addButton.addEventListener("click", toggleTodoDisplay);
 
-const todoTab = document.getElementById("todo");
 
 todoTab.addEventListener("click", showTaskDisplay);
 
-const addProjectBtn = document.querySelector(".projBtn");
 
 addProjectBtn.addEventListener("click", showProjectForm);
 
