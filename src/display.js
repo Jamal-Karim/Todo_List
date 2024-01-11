@@ -1,17 +1,34 @@
+//Showing Which Tab User is On
+export function toggleActive() {
+
+    var tabs = document.querySelectorAll('.tab');
+
+    tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+
+            tabs.forEach(function (i) {
+                i.classList.remove('active');
+            });
+
+            tab.classList.add('active');
+        });
+    });
+}
+
 //Display for all tasks
-export const todoDisplay = (function() {
+export const todoDisplay = (function () {
     const display = [];
 
-    return {display};
+    return { display };
 })();
 
 
-export function updateDisplay(task){
+export function updateDisplay(task) {
     todoDisplay.display.push(task);
 
-    for(let i = 0; i < todoDisplay.display.length; i++){
+    for (let i = 0; i < todoDisplay.display.length; i++) {
 
-        if("proj" in todoDisplay.display[i]){
+        if ("proj" in todoDisplay.display[i]) {
             console.log(todoDisplay.display[i].proj);
         }
 
@@ -20,11 +37,11 @@ export function updateDisplay(task){
     }
 }
 
-export function showDisplay(){
+export function showDisplay() {
 
-    for(let i = 0; i < todoDisplay.display.length; i++){
+    for (let i = 0; i < todoDisplay.display.length; i++) {
 
-        if("proj" in todoDisplay.display[i]){
+        if ("proj" in todoDisplay.display[i]) {
             console.log(todoDisplay.display[i].proj);
         }
 
@@ -33,7 +50,7 @@ export function showDisplay(){
     }
 }
 
-export function removeTask(task){
+export function removeTask(task) {
     const indexToRemove = todoDisplay.display.indexOf(task);
 
     todoDisplay.display.splice(indexToRemove, 1);

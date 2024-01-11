@@ -1,22 +1,16 @@
-import { createTodo, TodoInput } from "./todo.js";
+import { createTodo, TodoInput, toggleTodoDisplay, isFormDisplayed} from "./todo.js";
 import { createProject, createProjectTask, showProjectDisplay, removeProject } from "./project.js";
-import { todoDisplay, updateDisplay, removeTask, showDisplay } from "./display.js";
+import { todoDisplay, updateDisplay, removeTask, showDisplay, toggleActive } from "./display.js";
 
 import './styles/main.css';
 
+toggleActive();
+
 const addButton = document.querySelector(".add");
 
-
 //Todo Popup Form
-let isFormDisplayed = false;
 
-addButton.addEventListener("click", () => {
-    if (!isFormDisplayed) {
-        const body = document.querySelector("body");
-        body.appendChild(TodoInput());
-        isFormDisplayed = true;
-    }
-})
+addButton.addEventListener("click", toggleTodoDisplay);
 
 
 // const test = createTodo("read", "read 100pgs", "01/05/24", "low");

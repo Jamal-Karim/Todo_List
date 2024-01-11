@@ -12,7 +12,10 @@ export function createTodo(title, description, dueDate, priority) {
     return new Todo(title, description, dueDate, priority);
 }
 
+
 //Popup Form for Todo Task
+let isFormDisplayed = false;
+
 export function TodoInput() {
 
     const formContainer = document.createElement("div");
@@ -92,13 +95,20 @@ export function TodoInput() {
     const inputSubmit = document.createElement("input");
     inputSubmit.type = "button";
     inputSubmit.value = "Add To List";
+    inputSubmit.addEventListener("click", () =>{
+        AddTodoToList();
+        form.remove();
+        isFormDisplayed = false;
+    });
     inputBtns.appendChild(inputSubmit);
 
     const inputCancel = document.createElement("input");
     inputCancel.type = "button";
     inputCancel.value = "Cancel";
-    inputCancel.addEventListener("click", () =>{
+    inputCancel.addEventListener("click", () => {
         form.remove();
+        isFormDisplayed = false;
+        console.log("removed");
     })
     inputBtns.appendChild(inputCancel);
 
@@ -111,3 +121,45 @@ export function TodoInput() {
 
     return form;
 }
+
+export function toggleTodoDisplay() {
+    if (!isFormDisplayed) {
+        const body = document.querySelector("body");
+        body.appendChild(TodoInput());
+        isFormDisplayed = true;
+    }
+}
+
+export { isFormDisplayed };
+
+//Creating the Todo
+export function AddTodoToList() {
+    const todo = createTodo(document.getElementById("task").value, document.getElementById("description").value,
+        document.getElementById("dueDate").value, document.getElementById("priority").value);
+    console.log(todo);
+
+    //creating dynamic task
+    const mainTaskList = document.querySelector(".taskList")
+
+    const div = document.createElement("div");
+    div.classList.add("task");
+
+    const title = document.createElement("p");
+    title.classList.add("taskTitle");
+    title.textContent = todo.title;
+    div.appendChild(title);
+
+    const date = document.createElement("p");
+    date.classList.add("dueDate");
+    date.textContent = todo.dueDate;
+    div.appendChild(date);
+
+    const checkBtn = document.createElement("button");
+    checkBtn.classList.add("checkBtn");
+    div.appendChild(checkBtn);
+
+    mainTaskList.appendChild(div);
+
+    return mainTaskList;
+}
+

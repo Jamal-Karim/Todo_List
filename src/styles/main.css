@@ -103,6 +103,7 @@ body {
   border-style: none;
   background-color: var(--brightBlue);
   margin-top: auto;
+  margin-bottom: 4rem;
 }
 
 /* Which Sidebar Option Clicked */
@@ -116,7 +117,7 @@ body {
 .sidebar h2.active:before {
   content: "";
   position: absolute;
-  width: 300%;
+  width: 200%;
   height: 130%;
   background-color: coral;
   z-index: -1;
