@@ -1,5 +1,5 @@
 import { createTodo, TodoInput, toggleTodoDisplay, isFormDisplayed} from "./todo.js";
-import { createProject, createProjectTask, showProjectDisplay, removeProject } from "./project.js";
+import { createProject, createProjectTask, showProjectDisplay, removeProject, projectInput, showProjectForm } from "./project.js";
 import { todoDisplay, updateDisplay, removeTask, showTaskDisplay, toggleActive } from "./display.js";
 
 import './styles/main.css';
@@ -15,6 +15,10 @@ addButton.addEventListener("click", toggleTodoDisplay);
 const todoTab = document.getElementById("todo");
 
 todoTab.addEventListener("click", showTaskDisplay);
+
+const addProjectBtn = document.querySelector(".projBtn");
+
+addProjectBtn.addEventListener("click", showProjectForm);
 
 
 

@@ -112,7 +112,6 @@ export function TodoInput() {
     inputCancel.addEventListener("click", () => {
         form.remove();
         isFormDisplayed = false;
-        console.log("removed");
     })
     inputBtns.appendChild(inputCancel);
 

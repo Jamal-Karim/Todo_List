@@ -139,6 +139,15 @@ body {
   color: coral;
 }
 
+.projBtn{
+  cursor: pointer;
+  border: none;
+  background-color: cornflowerblue;
+  border-radius: 5px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-top: 1rem;
+}
+
 /* Grid Container */
 
 .gridContainer {
@@ -215,6 +224,29 @@ body{
 }
 .inputBtns input{
   margin-right: 1.3rem;
+}
+
+
+.projectInputContainer{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 250px;
+  background-color: #00ABE4;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2rem;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.projSubmit{
+  margin-top: 2rem;
 }
 /* Task Info Box */
 
