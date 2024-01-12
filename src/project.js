@@ -1,4 +1,4 @@
-import { todoDisplay, toggleActive, showTaskDisplay} from "./display.js";
+import { todoDisplay, toggleTab, showTaskDisplay} from "./display.js";
 import { Todo } from "./todo.js";
 
 //Project Logic
@@ -19,9 +19,11 @@ export function createProject (proj){
     const projContainer = document.querySelector(".projects");
     projContainer.appendChild(p);
 
-    p.addEventListener("click", () =>{
-        console.log("click");
-    })
+    projContainer.addEventListener("click", function(event) {
+        if (event.target.classList.contains('tab')) {
+            toggleTab(event.target);
+        }
+    });
     console.log(todoDisplay.display);
     
     return {proj};

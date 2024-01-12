@@ -1,9 +1,14 @@
 import { createTodo, TodoInput, toggleTodoDisplay, isFormDisplayed} from "./todo.js";
 import { createProject, createProjectTask, showProjectDisplay, removeProject, projectInput, showProjectForm } from "./project.js";
-import { todoDisplay, updateDisplay, removeTask, showTaskDisplay } from "./display.js";
+import { todoDisplay, updateDisplay, removeTask, showTaskDisplay, toggleTab } from "./display.js";
 
 import './styles/main.css';
 
+document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+        toggleTab(this);
+    });
+});
 
 const addButton = document.querySelector(".add");
 

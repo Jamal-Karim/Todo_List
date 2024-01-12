@@ -1,19 +1,16 @@
 //Showing Which Tab User is On
-// export function toggleActive() {
-//     const tabs = document.querySelectorAll('.tab');
-//     const mainTaskList = document.querySelector(".taskList");
+export function toggleTab(clickedTab) {
+    
+    var tabs = document.querySelectorAll('.tab');
+    const mainTaskList = document.querySelector(".taskList");
+    tabs.forEach(function(tab) {
+        tab.classList.remove('active');
+        mainTaskList.innerHTML = '';
+    });
 
-//     tabs.forEach(function (tab) {
-//         tab.addEventListener('click', function () {
-//             tabs.forEach(function (i) {
-//                 i.classList.remove('active');
-//             });
-
-//             tab.classList.add('active');
-//             mainTaskList.innerHTML = '';
-//         });
-//     });
-// }
+    
+    clickedTab.classList.add('active');
+}
 
 //Display for all tasks
 export const todoDisplay = (function () {
