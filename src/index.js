@@ -12,7 +12,21 @@ document.querySelectorAll('.tab').forEach(tab => {
 
 // document.addEventListener("DOMContentLoaded", function () {
 //     // Get the add button
-    
+//     var addButton = document.querySelector(".add");
+
+//     // Add a click event listener to the add button
+//     addButton.addEventListener("click", function () {
+//         // Check if a project tab has the "active" class
+//         var projectTab = document.querySelector(".tab.proj.active");
+
+//         if (projectTab) {
+//             // Do something when a project tab with the "active" class is found
+//             console.log(projectTab.textContent);
+//         }
+//         else{
+//             console.log("not project");
+//         }
+//     });
 // });
 
 const projectContainer = document.querySelector(".projects");

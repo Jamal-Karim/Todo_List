@@ -1,17 +1,17 @@
-import { todoDisplay, toggleTab, showTaskDisplay} from "./display.js";
+import { todoDisplay, toggleTab, showTaskDisplay } from "./display.js";
 import { Todo } from "./todo.js";
 
 //Project Logic
-class Project extends Todo{
-    constructor(proj, title, description, dueDate, priority){
+export class Project extends Todo {
+    constructor(proj, title, description, dueDate, priority) {
         super(title, description, dueDate, priority);
         this.proj = proj;
     }
 }
 
 //Creating Project Category
-export function createProject (proj){
-    
+export function createProject(proj) {
+
     const p = document.createElement("p");
     p.classList.add("tab");
     p.textContent = proj;
@@ -19,34 +19,33 @@ export function createProject (proj){
     const projContainer = document.querySelector(".projects");
     projContainer.appendChild(p);
 
-    projContainer.addEventListener("click", function(event) {
+    projContainer.addEventListener("click", function (event) {
         if (event.target.classList.contains('tab')) {
             toggleTab(event.target);
         }
     });
     console.log(todoDisplay.display);
-    
-    return {proj};
+
+    return { proj };
 }
 
 //Creating Task for Project Category
-export function createProjectTask (proj, title, description, dueDate, priority){
+export function createProjectTask(proj, title, description, dueDate, priority) {
     return new Project(proj, title, description, dueDate, priority);
 }
 
-// export function addProjectToList(){
-//     var addButton = document.querySelector(".add");
+export function addProjectToList() {
+    const project = createProjectTask(projectTab.textContent, document.getElementById("task").value, document.getElementById("description").value,
+        document.getElementById("dueDate").value, document.getElementById("priority").value);
 
-//     // Add a click event listener to the add button
-//     addButton.addEventListener("click", function () {
-//         // Get all elements with the class "proj"
-    
-//     });
-// }
+    console.log(project);
+    todoDisplay.display.push(project);
+    console.log(todoDisplay.display);
+}
 
 let isProjFormDisplayed = false;
 
-export function projectInput(){
+export function projectInput() {
 
     const projForm = document.createElement("div");
 
@@ -65,7 +64,7 @@ export function projectInput(){
     const inputAdd = document.createElement("input");
     inputAdd.type = "button";
     inputAdd.value = "Add Project";
-    inputAdd.addEventListener("click", () =>{
+    inputAdd.addEventListener("click", () => {
         createProject(input1.value);
         form.remove();
         isProjFormDisplayed = false;
@@ -75,7 +74,7 @@ export function projectInput(){
     const inputCancel = document.createElement("input");
     inputCancel.type = "button";
     inputCancel.value = "Cancel";
-    inputCancel.addEventListener("click", () =>{
+    inputCancel.addEventListener("click", () => {
         form.remove();
         isProjFormDisplayed = false;
     })
@@ -91,7 +90,7 @@ export function projectInput(){
     return form;
 }
 
-export function showProjectForm(){
+export function showProjectForm() {
     if (!isProjFormDisplayed) {
         const body = document.querySelector("body");
         body.appendChild(projectInput());
@@ -101,11 +100,11 @@ export function showProjectForm(){
 
 
 //Showing Display for Certain Project
-export function showProjectDisplay(projectType){
-    for(let i = 0; i < todoDisplay.display.length; i++){
+export function showProjectDisplay(projectType) {
+    for (let i = 0; i < todoDisplay.display.length; i++) {
 
-        if("proj" in todoDisplay.display[i]){
-            if(todoDisplay.display[i].proj === projectType){
+        if ("proj" in todoDisplay.display[i]) {
+            if (todoDisplay.display[i].proj === projectType) {
                 console.log(todoDisplay.display[i]);
             }
         }
@@ -114,7 +113,7 @@ export function showProjectDisplay(projectType){
 
 
 //Removing Project and All Tasks With it
-export function removeProject(projectType){
+export function removeProject(projectType) {
     for (let i = todoDisplay.display.length - 1; i >= 0; i--) {
         if ("proj" in todoDisplay.display[i] && todoDisplay.display[i].proj === projectType) {
             todoDisplay.display.splice(i, 1);

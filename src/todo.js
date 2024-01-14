@@ -1,5 +1,5 @@
 import { updateDisplay, todoDisplay } from "./display";
-import { createProjectTask } from "./project";
+// import { addProjectToList, createProject, createProjectTask, Project } from "./project";
 
 //TODO Logic
 export class Todo {
@@ -9,6 +9,48 @@ export class Todo {
         this.dueDate = dueDate;
         this.priority = priority;
     }
+}
+//Project Logic
+export class Project extends Todo {
+    constructor(proj, title, description, dueDate, priority) {
+        super(title, description, dueDate, priority);
+        this.proj = proj;
+    }
+}
+
+//Creating Project Category
+export function createProject(proj) {
+
+    const p = document.createElement("p");
+    p.classList.add("tab");
+    p.textContent = proj;
+
+    const projContainer = document.querySelector(".projects");
+    projContainer.appendChild(p);
+
+    projContainer.addEventListener("click", function (event) {
+        if (event.target.classList.contains('tab')) {
+            toggleTab(event.target);
+        }
+    });
+    console.log(todoDisplay.display);
+
+    return { proj };
+}
+
+//Creating Task for Project Category
+export function createProjectTask(proj, title, description, dueDate, priority) {
+    return new Project(proj, title, description, dueDate, priority);
+}
+
+export function addProjectToList() {
+    var projectTab = document.querySelector(".tab.proj.active");
+    const project = createProjectTask(projectTab.textContent, document.getElementById("task").value, document.getElementById("description").value,
+        document.getElementById("dueDate").value, document.getElementById("priority").value);
+
+    console.log(project);
+    todoDisplay.display.push(project);
+    console.log(todoDisplay.display);
 }
 
 export function createTodo(title, description, dueDate, priority) {
@@ -100,11 +142,23 @@ export function TodoInput() {
     const inputSubmit = document.createElement("input");
     inputSubmit.type = "button";
     inputSubmit.value = "Add To List";
+
     inputSubmit.addEventListener("click", () =>{
+        var projectTab = document.querySelector(".tab.proj.active");
+        if (projectTab) {
+            // Do something when a project tab with the "active" class is found
+            console.log(projectTab.textContent);
+            addProjectToList();
+        }
+        else{
+            console.log("not project");
+        }
+        
         AddTodoToList();
         form.remove();
         isFormDisplayed = false;
     });
+
     inputBtns.appendChild(inputSubmit);
 
     const inputCancel = document.createElement("input");
