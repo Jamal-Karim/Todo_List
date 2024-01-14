@@ -10,6 +10,13 @@ document.querySelectorAll('.tab').forEach(tab => {
     });
 });
 
+// document.addEventListener("DOMContentLoaded", function () {
+//     // Get the add button
+    
+// });
+
+const projectContainer = document.querySelector(".projects");
+
 const addButton = document.querySelector(".add");
 
 const todoTab = document.getElementById("todo");
@@ -17,7 +24,6 @@ const todoTab = document.getElementById("todo");
 const addProjectBtn = document.querySelector(".projBtn");
 
 //Todo Popup Form
-
 addButton.addEventListener("click", toggleTodoDisplay);
 
 

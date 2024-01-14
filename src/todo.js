@@ -1,4 +1,5 @@
 import { updateDisplay, todoDisplay } from "./display";
+import { createProjectTask } from "./project";
 
 //TODO Logic
 export class Todo {
@@ -137,6 +138,7 @@ export { isFormDisplayed };
 
 //Creating the Todo
 export function AddTodoToList() {
+
     const todo = createTodo(document.getElementById("task").value, document.getElementById("description").value,
         document.getElementById("dueDate").value, document.getElementById("priority").value);
         

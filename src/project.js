@@ -34,6 +34,16 @@ export function createProjectTask (proj, title, description, dueDate, priority){
     return new Project(proj, title, description, dueDate, priority);
 }
 
+// export function addProjectToList(){
+//     var addButton = document.querySelector(".add");
+
+//     // Add a click event listener to the add button
+//     addButton.addEventListener("click", function () {
+//         // Get all elements with the class "proj"
+    
+//     });
+// }
+
 let isProjFormDisplayed = false;
 
 export function projectInput(){
