@@ -1,5 +1,5 @@
 import { Project } from "./todo";
-import { todoDisplay, toggleTab } from "./display";
+import { todoDisplay, toggleTab, showProjectDisplay } from "./display";
 
 //Creating Project Category
 export function createProject(proj) {
@@ -33,9 +33,31 @@ export function addProjectToList() {
     const project = createProjectTask(projectTab.textContent, document.getElementById("task").value, document.getElementById("description").value,
         document.getElementById("dueDate").value, document.getElementById("priority").value);
 
-    console.log(project);
     todoDisplay.display.push(project);
-    console.log(todoDisplay.display);
+    
+    //creating dynamic task
+    const mainTaskList = document.querySelector(".taskList");
+
+    const div = document.createElement("div");
+    div.classList.add("task");
+
+    const title = document.createElement("p");
+    title.classList.add("taskTitle");
+    title.textContent = todo.title;
+    div.appendChild(title);
+
+    const date = document.createElement("p");
+    date.classList.add("dueDate");
+    date.textContent = todo.dueDate;
+    div.appendChild(date);
+
+    const checkBtn = document.createElement("button");
+    checkBtn.classList.add("checkBtn");
+    div.appendChild(checkBtn);
+
+    mainTaskList.appendChild(div);
+
+    return mainTaskList;
 }
 
 let isProjFormDisplayed = false;
@@ -93,20 +115,6 @@ export function showProjectForm() {
     }
 }
 
-
-//Showing Display for Certain Project
-export function showProjectDisplay(projectType) {
-    for (let i = 0; i < todoDisplay.display.length; i++) {
-
-        if ("proj" in todoDisplay.display[i]) {
-            if (todoDisplay.display[i].proj === projectType) {
-                console.log(todoDisplay.display[i]);
-            }
-        }
-    }
-}
-
-
 //Removing Project and All Tasks With it
 export function removeProject(projectType) {
     for (let i = todoDisplay.display.length - 1; i >= 0; i--) {
@@ -115,3 +123,9 @@ export function removeProject(projectType) {
         }
     }
 }
+
+const projContainer = document.querySelector(".projects");
+
+projContainer.addEventListener("click", function(event){
+    showProjectDisplay(event.target.textContent);
+})

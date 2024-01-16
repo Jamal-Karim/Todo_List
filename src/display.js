@@ -71,6 +71,39 @@ export function showTaskDisplay() {
     return mainTaskList;
 }
 
+//Showing Display for Certain Project
+export function showProjectDisplay(projectType) {
+    for (let i = 0; i < todoDisplay.display.length; i++) {
+
+        if ("proj" in todoDisplay.display[i]) {
+            if (todoDisplay.display[i].proj === projectType) {
+
+                const mainTaskList = document.querySelector(".taskList");
+
+                const div = document.createElement("div");
+                div.classList.add("task");
+
+                const title = document.createElement("p");
+                title.classList.add("taskTitle");
+                title.textContent = todoDisplay.display[i].title;
+                div.appendChild(title);
+
+                const date = document.createElement("p");
+                date.classList.add("dueDate");
+                date.textContent = todoDisplay.display[i].dueDate;
+                div.appendChild(date);
+
+                const checkBtn = document.createElement("button");
+                checkBtn.classList.add("checkBtn");
+                div.appendChild(checkBtn);
+
+                mainTaskList.appendChild(div);
+                return mainTaskList;
+
+            }
+        }
+    }
+}
 
 export function removeTask(task) {
     const indexToRemove = todoDisplay.display.indexOf(task);

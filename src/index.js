@@ -1,6 +1,6 @@
 import {toggleTodoDisplay} from "./todo.js";
 import {showProjectForm } from "./project.js";
-import {showTaskDisplay, toggleTab } from "./display.js";
+import {showTaskDisplay, toggleTab, showProjectDisplay } from "./display.js";
 
 import './styles/main.css';
 
@@ -24,3 +24,9 @@ todoTab.addEventListener("click", showTaskDisplay);
 
 
 addProjectBtn.addEventListener("click", showProjectForm);
+
+// const projContainer = document.querySelector(".projects");
+
+// projContainer.addEventListener("click", function(event){
+//     showProjectDisplay(event.target.textContent);
+// })
