@@ -1,5 +1,5 @@
 import { Project } from "./todo";
-import { todoDisplay, toggleTab, showProjectDisplay } from "./display";
+import { todoDisplay, toggleTab } from "./display";
 
 //Creating Project Category
 export function createProject(proj) {
@@ -43,12 +43,12 @@ export function addProjectToList() {
 
     const title = document.createElement("p");
     title.classList.add("taskTitle");
-    title.textContent = todo.title;
+    title.textContent = project.title;
     div.appendChild(title);
 
     const date = document.createElement("p");
     date.classList.add("dueDate");
-    date.textContent = todo.dueDate;
+    date.textContent = project.dueDate;
     div.appendChild(date);
 
     const checkBtn = document.createElement("button");
@@ -123,9 +123,3 @@ export function removeProject(projectType) {
         }
     }
 }
-
-const projContainer = document.querySelector(".projects");
-
-projContainer.addEventListener("click", function(event){
-    showProjectDisplay(event.target.textContent);
-})

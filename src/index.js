@@ -24,9 +24,3 @@ todoTab.addEventListener("click", showTaskDisplay);
 
 
 addProjectBtn.addEventListener("click", showProjectForm);
-
-// const projContainer = document.querySelector(".projects");
-
-// projContainer.addEventListener("click", function(event){
-//     showProjectDisplay(event.target.textContent);
-// })

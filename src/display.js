@@ -10,6 +10,9 @@ export function toggleTab(clickedTab) {
 
 
     clickedTab.classList.add('active');
+
+    const projectType = clickedTab.textContent;
+    showProjectDisplay(projectType);
 }
 
 
