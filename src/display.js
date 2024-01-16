@@ -12,6 +12,7 @@ export function toggleTab(clickedTab) {
     clickedTab.classList.add('active');
 }
 
+
 //Display for all tasks
 export const todoDisplay = (function () {
     const display = [];

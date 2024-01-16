@@ -1,13 +1,5 @@
-import { todoDisplay, toggleTab, showTaskDisplay } from "./display.js";
-import { Todo } from "./todo.js";
-
-//Project Logic
-export class Project extends Todo {
-    constructor(proj, title, description, dueDate, priority) {
-        super(title, description, dueDate, priority);
-        this.proj = proj;
-    }
-}
+import { Project } from "./todo";
+import { todoDisplay, toggleTab } from "./display";
 
 //Creating Project Category
 export function createProject(proj) {
@@ -19,22 +11,23 @@ export function createProject(proj) {
     const projContainer = document.querySelector(".projects");
     projContainer.appendChild(p);
 
-    projContainer.addEventListener("click", function (event) {
-        if (event.target.classList.contains('tab')) {
-            toggleTab(event.target);
-        }
+    p.addEventListener("click", function() {
+        toggleTab(p);
     });
+
+
     console.log(todoDisplay.display);
 
     return { proj };
 }
 
-//Creating Task for Project Category
+// Creating Task for Project Category
 export function createProjectTask(proj, title, description, dueDate, priority) {
     return new Project(proj, title, description, dueDate, priority);
 }
 
 export function addProjectToList() {
+    var projectTab = document.querySelector(".tab.proj.active");
     const project = createProjectTask(projectTab.textContent, document.getElementById("task").value, document.getElementById("description").value,
         document.getElementById("dueDate").value, document.getElementById("priority").value);
 
