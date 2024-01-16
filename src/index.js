@@ -10,8 +10,6 @@ document.querySelectorAll('.tab').forEach(tab => {
     });
 });
 
-const projectContainer = document.querySelector(".projects");
-
 const addButton = document.querySelector(".add");
 
 const todoTab = document.getElementById("todo");

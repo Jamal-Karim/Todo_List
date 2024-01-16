@@ -6,15 +6,17 @@ export function createProject(proj) {
 
     const p = document.createElement("p");
     p.classList.add("tab");
+    p.classList.add("proj");
     p.textContent = proj;
 
     const projContainer = document.querySelector(".projects");
     projContainer.appendChild(p);
 
-    p.addEventListener("click", function() {
-        toggleTab(p);
+    projContainer.addEventListener("click", function (event) {
+        if (event.target.classList.contains('tab')) {
+            toggleTab(event.target);
+        }
     });
-
 
     console.log(todoDisplay.display);
 

@@ -1,14 +1,14 @@
 //Showing Which Tab User is On
 export function toggleTab(clickedTab) {
-    
+
     var tabs = document.querySelectorAll('.tab');
     const mainTaskList = document.querySelector(".taskList");
-    tabs.forEach(function(tab) {
+    tabs.forEach(function (tab) {
         tab.classList.remove('active');
         mainTaskList.innerHTML = '';
     });
 
-    
+
     clickedTab.classList.add('active');
 }
 
@@ -49,6 +49,14 @@ export function showTaskDisplay() {
         title.textContent = todoDisplay.display[i].title;
         div.appendChild(title);
 
+        if ("proj" in todoDisplay.display[i]) {
+            const projCategory = document.createElement("p");
+            projCategory.classList.add("projTitle");
+            projCategory.textContent = todoDisplay.display[i].proj;
+            div.appendChild(projCategory);
+            console.log(todoDisplay.display[i].proj);
+        }
+
         const date = document.createElement("p");
         date.classList.add("dueDate");
         date.textContent = todoDisplay.display[i].dueDate;
@@ -57,10 +65,6 @@ export function showTaskDisplay() {
         const checkBtn = document.createElement("button");
         checkBtn.classList.add("checkBtn");
         div.appendChild(checkBtn);
-
-        // if ("proj" in todoDisplay.display[i]) {
-        //     console.log(todoDisplay.display[i].proj);
-        // }
 
         mainTaskList.appendChild(div);
     }

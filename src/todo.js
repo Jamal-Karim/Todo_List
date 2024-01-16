@@ -22,7 +22,6 @@ export function createTodo(title, description, dueDate, priority) {
     return new Todo(title, description, dueDate, priority);
 }
 
-
 //Popup Form for Todo Task
 let isFormDisplayed = false;
 
@@ -116,10 +115,9 @@ export function TodoInput() {
             addProjectToList();
         }
         else {
+            AddTodoToList();
             console.log("not project");
         }
-
-        AddTodoToList();
         form.remove();
         isFormDisplayed = false;
     });

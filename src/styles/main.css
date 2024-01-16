@@ -175,6 +175,7 @@ body {
 }
 
 .taskTitle,
+.projTitle,
 .dueDate {
   font-family: "Open Sans", sans-serif;
   font-weight: 900;
@@ -183,6 +184,12 @@ body {
 .taskTitle {
   margin-right: auto;
   margin-left: 2rem;
+}
+
+.projTitle{
+  color:cornflowerblue;
+  margin-left: auto;
+  margin-right: 2rem;
 }
 
 .dueDate,
