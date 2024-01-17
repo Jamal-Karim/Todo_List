@@ -109,9 +109,9 @@ export function showProjectDisplay(projectType) {
 }
 
 export function removeTask(task) {
-    const indexToRemove = todoDisplay.display.indexOf(task);
+    const indexToRemove = todoDisplay.display.findIndex(item => item.title === task);
 
     todoDisplay.display.splice(indexToRemove, 1);
 
-    showDisplay();
+    console.log(todoDisplay.display);
 }
