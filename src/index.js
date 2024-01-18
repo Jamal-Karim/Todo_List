@@ -1,6 +1,6 @@
 import {toggleTodoDisplay} from "./todo.js";
 import {showProjectForm } from "./project.js";
-import {showTaskDisplay, toggleTab, showProjectDisplay } from "./display.js";
+import {showTaskDisplay, toggleTab, removeTask, showProjectDisplay, todoDisplay } from "./display.js";
 
 import './styles/main.css';
 
@@ -21,14 +21,19 @@ const taskList = document.querySelector(".taskList");
 //Todo Popup Form
 addButton.addEventListener("click", toggleTodoDisplay);
 
-
+//Show Todo's On Display
 todoTab.addEventListener("click", showTaskDisplay);
 
-
+//Project Creation Form
 addProjectBtn.addEventListener("click", showProjectForm);
 
+//Removing Todo and Shwowing Display After
 taskList.addEventListener("click", function(event){
     if(event.target.classList.contains("checkBtn")){
-        console.log("button");
+        var parent = event.target.parentNode;
+        const task = parent.querySelector(".taskTitle").textContent;
+        taskList.innerHTML = '';
+        removeTask(task);
+        console.log(todoDisplay.display);
     }
 });
