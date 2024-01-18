@@ -91,7 +91,7 @@ body {
   margin-left: 1.2rem;
 }
 
-.add{
+.add {
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -125,7 +125,7 @@ body {
 } */
 
 /* Projects Section */
-.projects p{
+.projects p {
   cursor: pointer;
   margin-top: 1.2rem;
   display: flex;
@@ -139,7 +139,7 @@ body {
   color: coral;
 }
 
-.projBtn{
+.projBtn {
   cursor: pointer;
   border: none;
   background-color: cornflowerblue;
@@ -186,8 +186,8 @@ body {
   margin-left: 2rem;
 }
 
-.projTitle{
-  color:cornflowerblue;
+.projTitle {
+  color: cornflowerblue;
   margin-left: auto;
   margin-right: 2rem;
 }
@@ -204,11 +204,11 @@ body {
 }
 
 /* Input Form */
-body{
+body {
   position: relative;
 }
 
-.formContainer{
+.formContainer {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -226,15 +226,16 @@ body{
   padding: 20px;
 }
 
-.inputBtns{
+.inputBtns {
   margin-top: 1.3rem;
 }
-.inputBtns input{
+
+.inputBtns input {
   margin-right: 1.3rem;
 }
 
 
-.projectInputContainer{
+.projectInputContainer {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -252,13 +253,44 @@ body{
   padding: 20px;
 }
 
-.projSubmit{
+.projSubmit {
   margin-top: 2rem;
 }
+
 /* Task Info Box */
 
-/* .taskInfo{
+.taskInfo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 400px;
   height: 400px;
-  background-color:lightblue;
-} */
+  border-radius: 20px;
+  background-color: lightblue;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+}
+
+.taskInfo p{
+  margin-top: 0.8rem;
+  margin-left: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.taskInfo span{
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+}
+
+.cancel {
+  position: absolute;
+  cursor: pointer;
+  border: none;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: coral;
+  margin-left: 335px;
+  margin-top: 10px;
+  border-radius: 10px;
+}

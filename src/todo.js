@@ -1,5 +1,5 @@
-import {todoDisplay } from "./display";
-import {addProjectToList } from "./project";
+import { todoDisplay } from "./display";
+import { addProjectToList } from "./project";
 
 //TODO Logic
 export class Todo {
@@ -39,6 +39,12 @@ export function TodoInput() {
     input1.type = "text";
     input1.id = "task";
     input1.placeholder = "Enter task";
+    input1.setAttribute("required", true);
+    input1.addEventListener("input", function () {
+        if (this.value.length > 17) {
+            this.value = this.value.slice(0, 17);
+        }
+    });
     formContainer.appendChild(input1);
 
     // Task Description
@@ -51,6 +57,12 @@ export function TodoInput() {
     input2.type = "text";
     input2.id = "description";
     input2.placeholder = "Enter description";
+    input2.setAttribute("required", true);
+    input2.addEventListener("input", function () {
+        if (this.value.length > 75) {
+            this.value = this.value.slice(0, 75);
+        }
+    });
     formContainer.appendChild(input2);
 
     // Due Date
@@ -63,6 +75,7 @@ export function TodoInput() {
     input3.type = "date";
     input3.id = "dueDate";
     input3.placeholder = "Enter due date";
+    input3.setAttribute("required", true);
     formContainer.appendChild(input3);
 
     // Priority
@@ -73,7 +86,6 @@ export function TodoInput() {
 
     const selectPriority = document.createElement("select");
     selectPriority.id = "priority";
-    //  formContainer.appendChild(selectPriority);
 
     const option1 = document.createElement("option");
     option1.value = "";
@@ -108,18 +120,28 @@ export function TodoInput() {
     inputSubmit.value = "Add To List";
 
     inputSubmit.addEventListener("click", () => {
-        const projContainer = document.querySelector(".projects");
-        var projectTab = projContainer.querySelector(".tab.proj.active");
-        if (projectTab) {
-            console.log(projectTab.textContent);
-            addProjectToList();
+        const requiredInputs = formContainer.querySelectorAll('[required]');
+        let isValid = true;
+
+        requiredInputs.forEach(input => {
+            if (!input.value.trim()) {
+                isValid = false;
+            }
+        });
+        if (isValid) {
+            const projContainer = document.querySelector(".projects");
+            var projectTab = projContainer.querySelector(".tab.proj.active");
+            if (projectTab) {
+                console.log(projectTab.textContent);
+                addProjectToList();
+            }
+            else {
+                AddTodoToList();
+                console.log("not project");
+            }
+            form.remove();
+            isFormDisplayed = false;
         }
-        else {
-            AddTodoToList();
-            console.log("not project");
-        }
-        form.remove();
-        isFormDisplayed = false;
     });
 
     inputBtns.appendChild(inputSubmit);
