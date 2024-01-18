@@ -163,6 +163,7 @@ body {
 }
 
 .task {
+  cursor: pointer;
   border-radius: 10px;
   width: 79vw;
   height: 3rem;

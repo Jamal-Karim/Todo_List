@@ -113,7 +113,81 @@ export function removeTask(task) {
 
     if (indexToRemove !== -1) {
         todoDisplay.display.splice(indexToRemove, 1);
-        showTaskDisplay();  
+        showTaskDisplay();
         console.log(todoDisplay.display);
     }
 }
+
+let isTaskInfoDisplayed = false;
+
+export function showTaskInfo(title, description, dueDate, priority) {
+    const div = document.createElement("div");
+    div.classList.add("taskInfo")
+
+    const cancelBtn = document.createElement("button");
+    cancelBtn.textContent = "X";
+    cancelBtn.classList.add("cancel");
+    cancelBtn.addEventListener("click", () => {
+        div.remove();
+        isTaskInfoDisplayed = false;
+    })
+    div.appendChild(cancelBtn);
+
+    const ptitle = document.createElement("p");
+    ptitle.textContent = "Task : ";
+
+    const titleSpan = document.createElement("span");
+    titleSpan.textContent = title;
+    ptitle.appendChild(titleSpan);
+
+    div.appendChild(ptitle);
+
+    const pdesc = document.createElement("p");
+    pdesc.textContent = "Description : ";
+
+    const descSpan = document.createElement("span");
+    descSpan.textContent = description;
+    pdesc.appendChild(descSpan);
+
+    div.appendChild(pdesc);
+
+    const pdate = document.createElement("p");
+    pdate.textContent = "Due Date : ";
+
+    const dateSpan = document.createElement("span");
+    dateSpan.textContent = dueDate;
+    pdate.appendChild(dateSpan);
+
+    div.appendChild(pdate);
+
+    const ppriority = document.createElement("p");
+    ppriority.textContent = "Priority : ";
+
+    const prioritySpan = document.createElement("span");
+    prioritySpan.textContent = priority;
+    ppriority.appendChild(prioritySpan);
+
+    div.appendChild(ppriority);
+
+    // const body = document.querySelector("body");
+    // body.appendChild(div);
+
+    return div;
+}
+
+const taskList = document.querySelector(".taskList");
+
+taskList.addEventListener("click", function (event) {
+    if (event.target.classList.contains("task")) {
+        const task = event.target;
+        const taskTitle = task.querySelector(".taskTitle").textContent;
+        const indexOfTodo = todoDisplay.display.findIndex(item => item.title === taskTitle);
+        const targetTask = todoDisplay.display[indexOfTodo];
+        console.log(targetTask);
+        if(!isTaskInfoDisplayed){
+            const body = document.querySelector("body");
+            body.appendChild(showTaskInfo(targetTask.title, targetTask.description, targetTask.dueDate, targetTask.priority));
+            isTaskInfoDisplayed = true;
+        }
+    }
+})

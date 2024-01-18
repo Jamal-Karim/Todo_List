@@ -1,6 +1,6 @@
 import {toggleTodoDisplay} from "./todo.js";
 import {showProjectForm } from "./project.js";
-import {showTaskDisplay, toggleTab, removeTask, showProjectDisplay, todoDisplay } from "./display.js";
+import {showTaskDisplay, toggleTab, removeTask, showProjectDisplay, todoDisplay, showTaskInfo } from "./display.js";
 
 import './styles/main.css';
 
