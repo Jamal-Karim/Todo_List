@@ -63,40 +63,57 @@ export function addProjectToList() {
 let isProjFormDisplayed = false;
 
 export function projectInput() {
-
     const projForm = document.createElement("div");
 
+    // Project Name
     const label1 = document.createElement("label");
     label1.setAttribute("for", "project");
-    label1.textContent = "Enter Your Project";
+    label1.textContent = "Enter Your Project:";
     projForm.appendChild(label1);
 
     const input1 = document.createElement("input");
     input1.type = "text";
     input1.id = "project";
+    input1.placeholder = "Enter project name";
+    input1.setAttribute("required", true);
     projForm.appendChild(input1);
 
     const inputBtns = document.createElement("div");
 
+    // Adding project logic
     const inputAdd = document.createElement("input");
     inputAdd.type = "button";
     inputAdd.value = "Add Project";
+
     inputAdd.addEventListener("click", () => {
-        createProject(input1.value);
-        form.remove();
-        isProjFormDisplayed = false;
-    })
+        const requiredInputs = projForm.querySelectorAll('[required]');
+        let isValid = true;
+
+        requiredInputs.forEach(input => {
+            if (!input.value.trim()) {
+                isValid = false;
+            }
+        });
+
+        if (isValid) {
+            createProject(input1.value);
+            form.remove();
+            isProjFormDisplayed = false;
+        }
+    });
+
     inputBtns.appendChild(inputAdd);
 
     const inputCancel = document.createElement("input");
     inputCancel.type = "button";
     inputCancel.value = "Cancel";
+
     inputCancel.addEventListener("click", () => {
         form.remove();
         isProjFormDisplayed = false;
-    })
-    inputBtns.appendChild(inputCancel);
+    });
 
+    inputBtns.appendChild(inputCancel);
     inputBtns.classList.add("inputBtns");
     projForm.appendChild(inputBtns);
     projForm.classList.add("projectInputContainer");
@@ -106,6 +123,7 @@ export function projectInput() {
 
     return form;
 }
+
 
 export function showProjectForm() {
     if (!isProjFormDisplayed) {
