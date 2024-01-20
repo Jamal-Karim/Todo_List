@@ -274,13 +274,13 @@ body {
   font-size: 2rem;
 }
 
-.taskInfo p{
+.taskInfo p {
   margin-top: 0.8rem;
   margin-left: 1.2rem;
   margin-bottom: 0.8rem;
 }
 
-.taskInfo span{
+.taskInfo span {
   font-family: "Open Sans", sans-serif;
   font-weight: bold;
 }
@@ -294,4 +294,51 @@ body {
   margin-left: 335px;
   margin-top: 10px;
   border-radius: 10px;
+}
+
+/* Notes Section */
+.notesDisplay {
+  display: inline-block;
+  vertical-align: middle;
+  min-height: 50px;
+  padding: 10px;
+  margin: 1.9rem;
+  background-color: coral;
+  border-radius: 10px;
+}
+
+.notesDisplay p {
+  word-wrap: break-word;
+  max-width: 150px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 900;
+  font-size: 0.9rem;
+}
+
+.cancelNotes {
+  cursor: pointer;
+  border: none;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: var(--brightBlue);
+  border-radius: 5px;
+  margin-left: 120px;
+  margin-bottom: 7px;
+}
+
+.notesForm {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 250px;
+  background-color: #00ABE4;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2rem;
+  border-radius: 15px;
+  padding: 20px;
 }
