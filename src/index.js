@@ -18,6 +18,8 @@ const addProjectBtn = document.querySelector(".projBtn");
 
 const taskList = document.querySelector(".taskList");
 
+const notesTab = document.querySelector(".note");
+
 //Todo Popup Form
 addButton.addEventListener("click", toggleTodoDisplay);
 
@@ -37,3 +39,7 @@ taskList.addEventListener("click", function(event){
         console.log(todoDisplay.display);
     }
 });
+
+notesTab.addEventListener("click", function(){
+    console.log("notes clicked");
+})
