@@ -1,6 +1,7 @@
 import {toggleTodoDisplay} from "./todo.js";
 import {showProjectForm } from "./project.js";
 import {showTaskDisplay, toggleTab, removeTask, showProjectDisplay, todoDisplay, showTaskInfo } from "./display.js";
+import { showNotesForm } from "./notes.js";
 
 import './styles/main.css';
 
@@ -21,7 +22,16 @@ const taskList = document.querySelector(".taskList");
 const notesTab = document.querySelector(".note");
 
 //Todo Popup Form
-addButton.addEventListener("click", toggleTodoDisplay);
+// addButton.addEventListener("click", toggleTodoDisplay);
+addButton.addEventListener("click", function(){
+    if(notesTab.classList.contains("active")){
+        showNotesForm();
+        console.log("notes active");
+    }
+    else{
+        toggleTodoDisplay();
+    }
+});
 
 //Show Todo's On Display
 todoTab.addEventListener("click", showTaskDisplay);
@@ -40,6 +50,7 @@ taskList.addEventListener("click", function(event){
     }
 });
 
-notesTab.addEventListener("click", function(){
+notesTab.addEventListener("click", function(event){
+    console.log(event.target);
     console.log("notes clicked");
 })
