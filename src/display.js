@@ -30,6 +30,7 @@ export const notesDisplay = (function () {
     return { display };
 })();
 
+//Show All Todos
 export function showTaskDisplay() {
     console.log(todoDisplay.display);
 
@@ -100,6 +101,7 @@ export function showProjectDisplay(projectType) {
     }
 }
 
+//Removing Todo
 export function removeTask(task) {
     const indexToRemove = todoDisplay.display.findIndex(item => item.title === task);
 
@@ -110,6 +112,7 @@ export function removeTask(task) {
     }
 }
 
+//Showing Display for Notes
 export function removeNote(note){
     const indexToRemove = notesDisplay.display.findIndex(item => item.description === note);
 
@@ -120,6 +123,7 @@ export function removeNote(note){
     }
 }
 
+//Open Todo Info
 let isTaskInfoDisplayed = false;
 
 export function showTaskInfo(title, description, dueDate, priority) {
@@ -193,6 +197,8 @@ taskList.addEventListener("click", function (event) {
         }
     }
 })
+
+//Showing Notes Display
 
 export function showNotesDisplay() {
     const mainTaskList = document.querySelector(".taskList");

@@ -108,22 +108,6 @@ body {
 
 /* Which Sidebar Option Clicked */
 
-/* .active {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.sidebar h2.active:before {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 130%;
-  background-color: coral;
-  z-index: -1;
-  border-radius: 10px;
-} */
-
 /* Projects Section */
 .projects p {
   cursor: pointer;

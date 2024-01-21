@@ -60,6 +60,7 @@ export function addProjectToList() {
     return mainTaskList;
 }
 
+//Project Form Logic
 let isProjFormDisplayed = false;
 
 export function projectInput() {

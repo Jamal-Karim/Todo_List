@@ -73,6 +73,8 @@ export function showNotesForm() {
     }
 }
 
+//Adding Note to Display
+
 export function AddNote(note) {
     notesDisplay.display.push(note);
 

@@ -21,8 +21,7 @@ const taskList = document.querySelector(".taskList");
 
 const notesTab = document.querySelector(".note");
 
-//Todo Popup Form
-// addButton.addEventListener("click", toggleTodoDisplay);
+//Todo and Notes Popup Form
 addButton.addEventListener("click", function(){
     if(notesTab.classList.contains("active")){
         showNotesForm();
@@ -60,6 +59,7 @@ taskList.addEventListener("click", function(event){
     }
 })
 
+//Removing Notes and Showing Display After
 notesTab.addEventListener("click", function(event){
     showNotesDisplay();
     console.log(event.target);
