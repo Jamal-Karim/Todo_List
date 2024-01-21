@@ -1,7 +1,7 @@
 import {toggleTodoDisplay} from "./todo.js";
 import {showProjectForm } from "./project.js";
 import {showTaskDisplay, toggleTab, removeTask, showProjectDisplay, todoDisplay, showTaskInfo } from "./display.js";
-import { showNotesForm } from "./notes.js";
+import { showNotesForm, showNotesDisplay } from "./notes.js";
 
 import './styles/main.css';
 
@@ -51,6 +51,7 @@ taskList.addEventListener("click", function(event){
 });
 
 notesTab.addEventListener("click", function(event){
+    showNotesDisplay();
     console.log(event.target);
     console.log("notes clicked");
 })
