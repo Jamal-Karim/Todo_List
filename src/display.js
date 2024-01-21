@@ -23,20 +23,12 @@ export const todoDisplay = (function () {
     return { display };
 })();
 
+//Display for all Notes
+export const notesDisplay = (function () {
+    const display = [];
 
-export function updateDisplay(task) {
-    todoDisplay.display.push(task);
-
-    for (let i = 0; i < todoDisplay.display.length; i++) {
-
-        if ("proj" in todoDisplay.display[i]) {
-            console.log(todoDisplay.display[i].proj);
-        }
-
-        console.log(todoDisplay.display[i].title);
-        console.log(todoDisplay.display[i].description);
-    }
-}
+    return { display };
+})();
 
 export function showTaskDisplay() {
     console.log(todoDisplay.display);
@@ -118,6 +110,16 @@ export function removeTask(task) {
     }
 }
 
+export function removeNote(note){
+    const indexToRemove = notesDisplay.display.findIndex(item => item.description === note);
+
+    if(indexToRemove !== -1){
+        notesDisplay.display.splice(indexToRemove, 1);
+        showNotesDisplay();
+        console.log(notesDisplay.display);
+    }
+}
+
 let isTaskInfoDisplayed = false;
 
 export function showTaskInfo(title, description, dueDate, priority) {
@@ -191,3 +193,23 @@ taskList.addEventListener("click", function (event) {
         }
     }
 })
+
+export function showNotesDisplay() {
+    const mainTaskList = document.querySelector(".taskList");
+    for (let i = 0; i < notesDisplay.display.length; i++) {
+        const noteDisplay = document.createElement("div");
+        noteDisplay.classList.add("notesDisplay");
+
+        const cancelBtn = document.createElement("button");
+        cancelBtn.classList.add("cancelNotes");
+        cancelBtn.textContent = "X";
+        noteDisplay.appendChild(cancelBtn);
+
+        const description = document.createElement("p");
+        description.textContent = notesDisplay.display[i].description;
+        noteDisplay.appendChild(description);
+
+        mainTaskList.appendChild(noteDisplay);
+    }
+    return mainTaskList;
+}

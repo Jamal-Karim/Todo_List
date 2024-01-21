@@ -1,3 +1,5 @@
+import { notesDisplay } from "./display";
+
 //Notes Logic
 export class Note {
     constructor(description) {
@@ -9,13 +11,6 @@ export class Note {
 export function createNote(description) {
     return new Note(description);
 }
-
-//Notes Display Array
-export const notesDisplay = (function () {
-    const display = [];
-
-    return { display };
-})();
 
 //Notes Form Logic
 let isNotesFormDisplayed = false;
@@ -96,25 +91,5 @@ export function AddNote(note) {
     const mainTaskList = document.querySelector(".taskList");
     mainTaskList.appendChild(noteDisplay);
 
-    return mainTaskList;
-}
-
-export function showNotesDisplay() {
-    const mainTaskList = document.querySelector(".taskList");
-    for (let i = 0; i < notesDisplay.display.length; i++) {
-        const noteDisplay = document.createElement("div");
-        noteDisplay.classList.add("notesDisplay");
-
-        const cancelBtn = document.createElement("button");
-        cancelBtn.classList.add("cancelNotes");
-        cancelBtn.textContent = "X";
-        noteDisplay.appendChild(cancelBtn);
-
-        const description = document.createElement("p");
-        description.textContent = notesDisplay.display[i].description;
-        noteDisplay.appendChild(description);
-
-        mainTaskList.appendChild(noteDisplay);
-    }
     return mainTaskList;
 }

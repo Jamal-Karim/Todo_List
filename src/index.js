@@ -1,7 +1,7 @@
 import {toggleTodoDisplay} from "./todo.js";
 import {showProjectForm } from "./project.js";
-import {showTaskDisplay, toggleTab, removeTask, showProjectDisplay, todoDisplay, showTaskInfo } from "./display.js";
-import { showNotesForm, showNotesDisplay } from "./notes.js";
+import {showTaskDisplay, toggleTab, removeTask, showProjectDisplay, todoDisplay, showTaskInfo, showNotesDisplay, removeNote, notesDisplay } from "./display.js";
+import { showNotesForm } from "./notes.js";
 
 import './styles/main.css';
 
@@ -49,6 +49,16 @@ taskList.addEventListener("click", function(event){
         console.log(todoDisplay.display);
     }
 });
+
+taskList.addEventListener("click", function(event){
+    if(event.target.classList.contains("cancelNotes")){
+        var parent = event.target.parentNode;
+        const note = parent.querySelector("p").textContent;
+        taskList.innerHTML = '';
+        removeNote(note);
+        console.log(notesDisplay.display);
+    }
+})
 
 notesTab.addEventListener("click", function(event){
     showNotesDisplay();
